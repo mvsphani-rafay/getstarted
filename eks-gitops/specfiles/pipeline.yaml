@@ -39,6 +39,32 @@ spec:
         parentname: ""
         parents: []
 ---
+apiVersion: config.rafay.dev/v2
+kind: Agent
+metadata:
+  name: gitops-eks-agent
+spec:
+  template:
+    type: ClusterAgent
+    clusterName: mvsphani-tf-1
+---    
+apiVersion: config.rafay.dev/v2
+kind: Repository
+metadata:
+  name: gitops-eks-repo
+spec:
+  repositoryType: GitRepository
+  endpoint: https://github.com/mvsphani-rafay/eks-gitops.git
+  insecure: false
+  caCert: ""
+  credentialType: UserPassCredential
+  credentials:
+    userPass:
+      username: mvsphani-rafay
+      password: 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
+  agentNames:
+  - "gitops-eks-agent"
+---  
 apiVersion: pipeline.rafay.dev/v2
 kind: Trigger
 metadata:
@@ -57,29 +83,5 @@ spec:
       - specfiles/
     helm: null
   variables: []
----
-apiVersion: config.rafay.dev/v2
-kind: Repository
-metadata:
-  name: gitops-eks-repo
-spec:
-  repositoryType: GitRepository
-  endpoint: <Endpoint>
-  insecure: false
-  caCert: ""
-  credentialType: UserPassCredential
-  credentials:
-    userPass:
-      username: <Username>
-      password: <Password>
-  agentNames:
-  - "gitops-eks-agent"
----
-apiVersion: config.rafay.dev/v2
-kind: Agent
-metadata:
-  name: gitops-eks-agent
-spec:
-  template:
-    type: ClusterAgent
-    clusterName: gitops-eks-cluster
+
+

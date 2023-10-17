@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "<Bucket Name>"
+    bucket = "mvsphani-gitops"
     key    = "terraform.tfstate"
     region = "us-west-2"
   }

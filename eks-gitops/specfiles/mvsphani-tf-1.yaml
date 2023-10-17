@@ -34,7 +34,6 @@ nodeGroups:
       albIngress: false
       appMesh: false
       appMeshPreview: false
-      autoScaler: true
       certManager: false
       cloudWatch: false
       ebs: false
@@ -43,7 +42,7 @@ nodeGroups:
       fsx: false
       imageBuilder: true
       xRay: false
-  instanceType: t3.large
+  instanceType: t3.small
   maxPodsPerNode: 50
   maxSize: 2
   minSize: 1
