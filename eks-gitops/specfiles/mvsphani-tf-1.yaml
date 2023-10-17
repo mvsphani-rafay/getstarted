@@ -47,7 +47,6 @@ nodeGroups:
   maxSize: 2
   minSize: 1
   name: ng-1
-  privateNetworking: true
   version: "1.26"
   volumeEncrypted: false
   volumeIOPS: 3000
